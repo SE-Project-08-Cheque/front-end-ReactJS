@@ -14,13 +14,14 @@ const DataTable = ({data}) => {
     return (
        
         <Table variant="striped" colorScheme="gray">
+            <hr/>
         
             <Thead>
                 <Tr>{data[0] && columns.map((heading)=><Th>{heading}</Th>)}</Tr>
             </Thead>
 
 
-            <Tbody>
+            <Tbody> 
 
                 {data.map(row => 
                 <React.Fragment>
