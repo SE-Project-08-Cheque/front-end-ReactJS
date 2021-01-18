@@ -72,12 +72,10 @@ function Navbar(props) {
             Dashboard
           </Link>
         </MenuItems>
-        <MenuItems>About US</MenuItems>
+        <MenuItems>Help me</MenuItems>
       </Box>
 
-      <box paddingleft="5px">
-          <Avatar src="https://bit.ly/broken-link" />
-          </box>
+      
       <Box
         display={{ base: show ? 'block' : 'none', md: 'block' }}
         mt={{ base: 4, md: 0 }}
@@ -94,7 +92,7 @@ function Navbar(props) {
         />
 
         <Button bg="transparent" border="1px">
-          Log in
+          Log out
         </Button>
       </Box>
     </Flex>

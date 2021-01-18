@@ -41,7 +41,7 @@ function Sidebar(props) {
         height={{ base: '520px', md: '100%' }}
         borderTop="1px"
         borderTopColor="gray.600"
-        borderTopWidth="97px"
+        borderTopWidth="90px"
         position="fixed"
         rounded="md"
         backgroundColor="gray.700"
@@ -81,7 +81,7 @@ function Sidebar(props) {
               spacing={5}
               align="stretch"
             >
-              <Divider colorScheme="green" orientation="horizontal" />
+             
 
               <Button
                 h="50px"
@@ -94,7 +94,7 @@ function Sidebar(props) {
                 boxShadow="dark-lg"
                 colorScheme="gray.600"
               >
-                <Text color="white">Change Details</Text>
+                <Text color="white"> {props.disable[0]}Change Details</Text>
               </Button>
               <Button
                 h="50px"
