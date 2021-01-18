@@ -19,7 +19,7 @@ function Home() {
   return (
     <>
      <MainSection />
-     <Footer base='100px' />
+     <Footer base='100px'/>
     </>
   );
 }
