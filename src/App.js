@@ -19,6 +19,7 @@ import UserList from './components/pages/StaffPages/containers/CustomerTable';
 import Staff from './components/pages/StaffPages/containers/StaffviewProfile';
 import Userlist from './components/pages/StaffPages/containers/CustomerTable';
 import Sprofile from './components/pages/StaffPages/containers/StaffviewProfile';
+import StaffChange from './components/pages/StaffPages/containers/StaffChangeDetails'
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="/StaffDashboard"  component={Staff} />
           <Route path="/CustomerDetails"  component={UserList} />
           <Route path="/view"  component={Sprofile} />
+          <Route path="/changeDetails" component={StaffChange}/>
          
 
 
