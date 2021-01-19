@@ -21,8 +21,8 @@ function Card(props) {
       overflow="hidden"
       p="10px"
       mb="10px"
-      ml="10px"
-      mr="10px"
+      ml="20px"
+      mr="20px"
     >
       <Grid
         h="auto"

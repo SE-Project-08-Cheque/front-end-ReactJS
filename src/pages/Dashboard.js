@@ -23,8 +23,8 @@ import {
   Spinner,
   Tooltip,
 } from '@chakra-ui/react';
-import Sidebar from '../Sidebar';
-import Alert from '../Alert';
+import Sidebar from '../components/Sidebar';
+import Alert from '../components/Alert';
 import {
   ArrowRightIcon,
   CheckCircleIcon,
@@ -32,7 +32,8 @@ import {
   PhoneIcon,
   StarIcon,
 } from '@chakra-ui/icons';
-import '../MainSection.css';
+import '../components/MainSection.css';
+import Footer from '../components/Footer';
 
 function Dashboard() {
   return (
@@ -57,20 +58,42 @@ function Dashboard() {
             borderColor="gray.200"
             borderWidth="2px"
             p="10px"
-            mt="-40px"
+            pt='30px'
+            mt="-20px"
             borderRadius="20px"
           >
             <Center>
-              <Image
-                boxSize="150px"
-                borderRadius="10px"
-                ml="0px"
-                objectFit="cover"
-                src="https://bit.ly/dan-abramov"
-                alt="Dan Abramov"
-              />
-            </Center>
+              <Grid templateColumns="repeat(3, 1fr)" gap={20}>
+                <Box borderRadius="20px" w="100%" h="100" bg="red.500">
+                  <Text color="white" pl="10" pt="10">
+                    Last Login :
+                  </Text>
+                  <Text color="white" pl="3">
+                    2021/01/19 20:24
+                  </Text>
+                </Box>
+                <Image
+                  boxSize="150px"
+                  borderRadius="10px"
+                  ml="0px"
+                  objectFit="cover"
+                  src="https://bit.ly/dan-abramov"
+                  alt="Dan Abramov"
+                />
 
+                <Box w="100%" h="100" bg="blue.500" borderRadius="20px">
+                  <Text color="white" pl="1" pt="10">
+                    Password Changed :
+                  </Text>
+                  <Text color="white" pl="3">
+                    2020/08/01 20:24
+                  </Text>
+                </Box>
+              </Grid>
+            </Center>
+            <Center mt='30px'>
+              <Alert />
+            </Center>
             <Box
               borderStyle="solid"
               borderColor="gray.200"
@@ -80,7 +103,7 @@ function Dashboard() {
               mt="50px"
               borderRadius="10px"
             >
-              <Tooltip label="Phone number" fontSize="md">
+              <Tooltip label="Name" fontSize="md">
                 <Text pl="2px" color="gray.900" isTruncated>
                   <IconButton
                     m="10px"
@@ -89,7 +112,7 @@ function Dashboard() {
                     aria-label="Send email"
                     icon={<ArrowRightIcon />}
                   />
-                  Name: C.P.Amarasena
+                  C.P.Amarasena
                 </Text>
               </Tooltip>
             </Box>

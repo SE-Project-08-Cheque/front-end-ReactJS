@@ -10,18 +10,18 @@ import {
   theme,
   Center,
   Button,
-  Flex,
 } from '@chakra-ui/react';
-import Sidebar from '../Sidebar';
+import MainSection from '../components/MainSection';
+import Footer from '../components/Footer';
 
-function ChangePassword() {
+
+function Home() {
   return (
     <>
-      
-        <Sidebar/>
-      
+     <MainSection />
+     <Footer/>
     </>
   );
 }
 
-export default ChangePassword;
+export default Home;
