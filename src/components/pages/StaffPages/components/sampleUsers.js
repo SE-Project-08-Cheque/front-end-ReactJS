@@ -1,13 +1,13 @@
 const  UserDetails = [
   {
     id: '1',
-    name: 'Airpods Wireless Bluetooth Headphones',
+    name: 'Aires',
     FirstName:'abc',
     LastName:'pqr'
   },
   {
     id: '2',
-    name: 'Airpods Wireless Bluetooth Headphones',
+    name: 'Aiol',
     FirstName:'abc',
     LastName:'pqr'
   },
@@ -19,67 +19,67 @@ const  UserDetails = [
   },
   {
     id: '4',
-    name: 'Airpods Wireless Bluetooth Headphones',
+    name: 'AiHeadphones',
     FirstName:'kodai',
     LastName:'pqr'
   },
   {
     id: '4',
-    name: 'Airpods Wireless Bluetooth Headphones',
+    name: 'Airponai',
     FirstName:'kodai',
     LastName:'pqr'
   },
   {
     id: '4',
-    name: 'Airpods Wireless Bluetooth Headphones',
+    name: 'Aiolieadphones',
     FirstName:'kodai',
     LastName:'pqr'
   },
   {
     id: '4',
-    name: 'Airpods Wireless Bluetooth Headphones',
+    name: 'oli',
     FirstName:'kodai',
     LastName:'pqr'
   },
   {
     id: '4',
-    name: 'Airpods Wireless Bluetooth Headphones',
+    name: 'olis',
     FirstName:'kodai',
     LastName:'pqr'
   },
   {
     id: '4',
-    name: 'Airpods Wireless Bluetooth Headphones',
+    name: 'oth Headphones',
     FirstName:'kodai',
     LastName:'pqr'
   },
   {
     id: '4',
-    name: 'Airpods Wireless Bluetooth Headphones',
+    name: 'Airpdphones',
     FirstName:'kodai',
     LastName:'pqr'
   },
   {
     id: '4',
-    name: 'Airpods Wireless Bluetooth Headphones',
+    name: 'Aeadphones',
     FirstName:'kodai',
     LastName:'pqr'
   },
   {
     id: '4',
-    name: 'Airpods Wireless Bluetooth Headphones',
+    name: 'uetooth Headphones',
     FirstName:'kodai',
     LastName:'pqr'
   },{
     id: '4',
-    name: 'Airpods Wireless Bluetooth Headphones',
+    name: 'eadphones',
     FirstName:'kodai',
     LastName:'pqr'
   },
   
   {
     id: '6',
-    name: 'Airpods Wireless Bluetooth Headphones',
+    name: 'tooth Headphones',
     FirstName:'abc',
     LastName:'pqr'
   },

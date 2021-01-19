@@ -1,11 +1,13 @@
 import React,{useState,useEffect} from 'react';
-import DataTable from './DataTable';
 import { Input,Stack,Checkbox,CheckboxGroup,HStack,Box,Container,Center } from "@chakra-ui/react";
 
 
-import UserDetails from './sampleUsers';
-import Navbar from '../../Navbar'
-import Sidebar from '../../Sidebar'
+import UserDetails from '../components/sampleUsers';
+import DataTable from '../components/DataTable';
+import StaffHeader from '../components/StaffHeader';
+import StaffSideBar from '../components/StaffsideBar';
+
+
 
 const CustomerTable = (props) => {
 
@@ -43,7 +45,10 @@ const CustomerTable = (props) => {
 
     return (
         <React.Fragment>
-            <Sidebar isDisabled="false" />
+            <StaffSideBar isDisabled="false" />
+            <StaffHeader heading={"Cheque"}/>
+
+           
 
             <Box
                 borderStyle="solid"
@@ -52,7 +57,7 @@ const CustomerTable = (props) => {
                 boarderRadius="200px"
                 mt={{ base: '530px', md: '130px' }}
                 ml={{ base: '20px', md: '320px' }}
-                h="800px"
+                h="auto"
                 mr="20px"
                 >
                 
