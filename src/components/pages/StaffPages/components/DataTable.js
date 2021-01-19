@@ -42,9 +42,7 @@ const DataTable = ({data}) => {
                     { columns.map(column => <Td>{row[column]}</Td> )}
                    
                     <Td> 
-                      <Model Customer={row}/>
-                        
-
+                      <Model Customer={row}/>   
                     </Td>
             
                 </Tr>

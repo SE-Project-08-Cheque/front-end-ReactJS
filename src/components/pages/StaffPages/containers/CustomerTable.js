@@ -46,17 +46,19 @@ const CustomerTable = (props) => {
     return (
         <React.Fragment>
             <StaffSideBar isDisabled="false" />
-            <StaffHeader heading={"Cheque"}/>
+            <StaffHeader />
 
            
 
             <Box
                 borderStyle="solid"
                 borderColor="gray.200"
-                borderWidth="2px"
-                boarderRadius="200px"
-                mt={{ base: '530px', md: '130px' }}
-                ml={{ base: '20px', md: '320px' }}
+                borderWidth="4px"
+                boarderRadius="250px"
+                mt={{ base: '100px', md: '130px' }}
+                ml={{ base: '20px', md: '260px' }}
+                
+
                 h="auto"
                 mr="20px"
                 >

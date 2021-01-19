@@ -1,19 +1,9 @@
 import React from 'react';
-import {
-  Flex,
-  Box,
-  Heading,
-  Button,
-  useColorMode,
-  IconButton,
-  useDisclosure,
-  ReactRouterLink,
-} from '@chakra-ui/react';
-import { HamburgerIcon, MoonIcon, SettingsIcon } from '@chakra-ui/icons';
-
-
-import { Avatar, AvatarBadge } from "@chakra-ui/react"
+import { Flex, Box,Heading,Button, ReactRouterLink,Center,Menu,MenuItem,MenuGroup,MenuDivider,MenuButton,MenuList,Avatar} from '@chakra-ui/react';
+import { HamburgerIcon, EditIcon,LockIcon,ExternalLinkIcon, SettingsIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
+
+import SampleProfile from './pro.jpg';
 
 function Navbar(props) {
   const MenuItems = ({ children }) => (
@@ -31,8 +21,9 @@ function Navbar(props) {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
 
-  const { colorMode, toggleColorMode } = useColorMode();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  
+
+
 
   return (
     <Flex
@@ -40,70 +31,94 @@ function Navbar(props) {
       align="center"
       justify="space-between"
       wrap="wrap"
-      padding="1.5rem"
-      bg="#2B6CB0"
+      padding="0.6rem"
+      bg="#171923"
       color="white"
       position="fixed"
       top="0"
       width="100%"
       zIndex="10000"
+      borderTopColor="#3182CE"
+      borderTopWidth="5px"
+      borderBottomColor="#3182CE"
+      borderBottomWidth="5px"
+
     >
       <Flex align="center" mr={5}>
-      <Link as={ReactRouterLink} to="/">
-        <Heading as="h1" size="lg" letterSpacing={'-.1rem'}>
-          {props.heading}
-        </Heading>
-        </Link>
+        <Link as={ReactRouterLink} to="/">
+          <Heading as="h1" size="lg" letterSpacing={'-.1rem'}>
+             Online Cheque
+          </Heading>
+          </Link>
       </Flex>
 
       <Box display={{ base: 'block', md: 'none' }} onClick={handleToggle}>
         <HamburgerIcon />
+
+
+      </Box>
+      
+
+          <Box
+            display={{ base: show ? 'block' : 'none', md: 'flex' }}
+            width={{ base: 'full', md: 'auto' }}
+            alignItems="center"
+            flexGrow={1}
+            pl="20px"
+          >
+            <MenuItems>
+              <Link as={ReactRouterLink} to="/StaffDashboard">
+                Dashboard
+              </Link>
+            </MenuItems>
+
+            <MenuItems>
+              <Link as={ReactRouterLink} to="/CustomerDetails">
+              Customer Details
+              </Link>
+            </MenuItems>
+          </Box>
+
+
+      <Box marginRight="2rem">
+      <Center mb="5px" mt="10px">
+            <Avatar src={SampleProfile} />
+      </Center>
       </Box>
 
-      <Box
-        display={{ base: show ? 'block' : 'none', md: 'flex' }}
-        width={{ base: 'full', md: 'auto' }}
-        alignItems="center"
-        flexGrow={1}
-        pl="20px"
-      >
-        <MenuItems>
-          <Link as={ReactRouterLink} to="/StaffDashboard">
-            Dashboard
-          </Link>
-        </MenuItems>
-
-        <MenuItems>
-          <Link as={ReactRouterLink} to="/CustomerDetails">
-           Customer Details
-          </Link>
-        </MenuItems>
-
-       
+      <Box marginRight="2rem">
+      <Center mb="5px" mt="10px">
+             ID: 475D
+      </Center>
       </Box>
+     
+     
+     
 
-      <box paddingleft="5px">
-          <Avatar src="https://bit.ly/broken-link" />
-          </box>
-      <Box
-        display={{ base: show ? 'block' : 'none', md: 'block' }}
-        mt={{ base: 4, md: 0 }}
-      >
+      
+      <Box marginRight="2rem"> 
+
+      <Menu  >
+        <MenuButton as={SettingsIcon} colorScheme="pink">
+          Profile
+        </MenuButton>
+        <MenuList>
+          <MenuGroup title="Profile" color="#1A202C">
+            <MenuItem color="#1A202C"><ExternalLinkIcon/> &nbsp; My Profile</MenuItem>
+            <MenuItem color="#1A202C"> <EditIcon/> &nbsp; Change Profile</MenuItem>
+          </MenuGroup>
+          <MenuDivider />
+            <MenuItem color="#1A202C"> <LockIcon/> &nbsp; Change Password</MenuItem>
+         
+          <Link as={ReactRouterLink}  to="/">
+            <MenuItem color="#1A202C" > <SettingsIcon/> &nbsp; Log Out</MenuItem>
+            </Link>
           
-          
-        <IconButton
-          aria-label="Call Segun"
-          size="md"
-          icon={colorMode === 'light' ? <MoonIcon /> : <SettingsIcon />}
-          mr={{ base: '5px', md: '20px' }}
-          variant="outline"
-          onClick={toggleColorMode}
-        />
+        </MenuList>
+      </Menu>
 
-        <Button bg="transparent" border="1px">
-          Log Out
-        </Button>
       </Box>
+
     </Flex>
   );
 }

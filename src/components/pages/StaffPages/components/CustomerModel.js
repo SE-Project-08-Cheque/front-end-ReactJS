@@ -25,8 +25,8 @@ function Model(props) {
     return (
       <>
       
-       <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
-          Open
+       <Button ref={btnRef} colorScheme="green" onClick={onOpen}>
+          SELECT
         </Button>
         
         <Drawer

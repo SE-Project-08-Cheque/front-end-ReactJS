@@ -1,51 +1,39 @@
 import React from 'react';
+import { useMediaQuery } from "@chakra-ui/react"
 import {
-  Flex,
-  Box,
-  Heading,
-  Button,
-  useColorMode,
-  IconButton,
-  useDisclosure,
-  ReactRouterLink,
-  Center,
-  Text,
-  Square,
-  VStack,
-  StackDivider,
-  Table,
-  Td,
-  Tr,
-  Thead,
-  Th,
-  Tbody,
-  TableCaption,
-  CircularProgress,
-  Badge,
-  Progress,
-  Divider,
-} from '@chakra-ui/react';
-import { Avatar, AvatarBadge } from '@chakra-ui/react';
+  Flex, Box, Button,ReactRouterLink,Center,VStack,} from '@chakra-ui/react';
 
-// sidebar nav config
+import { Link } from 'react-router-dom';
+
+
 
 function Sidebar(props) {
+    const [isLargerThanPhone] = useMediaQuery("(min-width: 800px)")
+  
+  
   return (
     <>
+
+    {isLargerThanPhone ? 
+
       <Flex
-        paddingTop="10px"
+        paddingTop="0px"
         h="800px"
         left="0px"
         top="0px"
-        width={{ base: '100%', md: '300px' }}
+        width={{ base: '100%', md: '200px' }}
         height={{ base: '520px', md: '100%' }}
         borderTop="1px"
-        borderTopColor="gray.600"
-        borderTopWidth="97px"
-        position="fixed"
         rounded="md"
-        backgroundColor="#2A4365"
-        zIndex="9999"
+        borderTopColor="#3182CE"
+        borderTopWidth="85px"
+        position="fixed"
+        borderBottomColor="#3182CE"
+        borderBottomWidth="5px"
+        position="fixed"
+        ml="0px"
+        backgroundColor="#1A202C "
+        zIndex="30"
       >
         <Box
           width="100%"
@@ -53,68 +41,76 @@ function Sidebar(props) {
           borderColor="gray.600"
           borderWidth="0px"
         >
-          <Center mb="5px" mt="10px">
-            <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
-          </Center>
+         
 
-          <Box h="50px" mb="70px">
-            <Center>
-              <Text color="white">C.P.Amarasena</Text>
-            </Center>
-            <Center mb="10px">
-              <Badge variant="solid" colorScheme="green">
-                Online
-              </Badge>
-            </Center>
-            <Progress
-              ml="50px"
-              mr="50px"
-              colorScheme="green"
-              size="xs"
-              isIndeterminate
-            />
-          </Box>
+          <Box h="50px" mb="70px"> </Box>
+          
 
           <Box width="100%">
-            <VStack
-              divider={<StackDivider borderColor="gray.500" />}
+            <VStack              
               spacing={5}
               align="stretch"
             >
-              <Divider colorScheme="green" orientation="horizontal" />
 
-              <Button
-                h="50px"
-                _hover={{
-                  background: 'gray.800',
-                  color: 'white',
-                  transitionDuration: '0.6s',
-                }}
-                rounded="box"
-                boxShadow="dark-lg"
-                colorScheme="gray.600"
-              >
-                <Text color="white">Change Details</Text>
-              </Button>
-              <Button
-                h="50px"
-                _hover={{
-                  background: 'gray.800',
-                  color: 'white',
-                  transitionDuration: '0.6s',
-                }}
-                rounded="box"
-                boxShadow="dark-lg"
-                colorScheme="gray.600"
-              >
-                <Text color="white">Change Password</Text>
-              </Button>
+            <Link as={ReactRouterLink} to="/changeDetails">
+                <Button
+                  h="50px"
+                  w="100%"
+                  _hover={{
+                    background: '#3182CE',
+                    color: 'white',
+                    transitionDuration: '0.6s',
+                  }}
+                  rounded="box"
+                  boxShadow="dark-lg"
+                  colorScheme="gray.600"
+                >
+                  <Center>View Profile</Center>
+                </Button>
+              </Link>
 
-              <Divider orientation="horizontal" />
+
+              <Link as={ReactRouterLink} to="/changeDetails">
+                <Button
+                  h="50px"
+                  w="100%"
+                  _hover={{
+                    background: '#3182CE',
+                    color: 'white',
+                    transitionDuration: '0.6s',
+                  }}
+                  rounded="box"
+                  boxShadow="dark-lg"
+                  colorScheme="gray.600"
+                >
+                  <Center>Change Details</Center>
+                </Button>
+              </Link>
+
+
+              <Link as={ReactRouterLink} to="/changePassword">
+                <Button
+                  h="50px"
+                  w="100%"
+                 
+                  _hover={{
+                    background: '#3182CE',
+                    color: 'white',
+                    transitionDuration: '0.6s',
+                  }}
+                  rounded="box"
+                  boxShadow="dark-lg"
+                  colorScheme="gry.600"
+                >
+                  Change Password
+                </Button>
+              </Link>
+
+              
             </VStack>
           </Box>
         </Box>
-      </Flex>
+      </Flex> :null}
     </>
   );
 }
