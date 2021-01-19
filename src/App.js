@@ -11,9 +11,11 @@ import {
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './components/pages/Home';
+import Home from './pages/Home';
 import Navbar from './components/Navbar';
-import Dashboard from './components/pages/Dashboard';
+import Dashboard from './pages/Dashboard';
+import ChangePassword from './pages/ChangePassword';
+import ChangeDetails from './pages/ChangeDetails';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/changePassword" component={ChangePassword} />
+          <Route path="/changeDetails" component={ChangeDetails} />
         </Switch>
       </ChakraProvider>
     </Router>

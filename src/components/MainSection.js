@@ -21,10 +21,12 @@ function MainSection() {
   return (
     <>
       <div className="main-section">
-        <Box pt='150px' h="300px">
-          <Text pl="20px" fontSize="8xl" color="white">
-            Welcome!
-          </Text>
+        <Box pt="150px" h="300px">
+          <Center>
+            <Text pl="20px" fontSize="9xl" color="white">
+              Welcome!
+            </Text>
+          </Center>
           <Center>
             <Text pt="30px" fontSize="5xl" color="white">
               Send a cheque?
@@ -33,7 +35,7 @@ function MainSection() {
           <Center>
             <Button
               mt="20px"
-              leftIcon={<MdSend />}
+              rightIcon={<MdSend />}
               colorScheme="red"
               variant="solid"
             >
@@ -43,23 +45,23 @@ function MainSection() {
         </Box>
       </div>
 
-      <div className="buttons" p='10px'>
+      <div className="buttons" p="10px">
         <Card
           imageUrl="./images/svg-1.svg"
           imageAlt="User"
-          type='Received Cheques'
+          type="Received Cheques"
           count="34 received "
         />
         <Card
           imageUrl="./images/svg-5.svg"
           imageAlt="User"
-          type='Sent Cheques'
+          type="Sent Cheques"
           count="sent 12"
         />
         <Card
           imageUrl="./images/svg-2.svg"
           imageAlt="User"
-          type='Finished Cheques'
+          type="Finished Cheques"
           count="20 finished "
         />
       </div>
