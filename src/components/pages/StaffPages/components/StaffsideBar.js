@@ -52,22 +52,7 @@ function Sidebar(props) {
               align="stretch"
             >
 
-            <Link as={ReactRouterLink} to="/changeDetails">
-                <Button
-                  h="50px"
-                  w="100%"
-                  _hover={{
-                    background: '#3182CE',
-                    color: 'white',
-                    transitionDuration: '0.6s',
-                  }}
-                  rounded="box"
-                  boxShadow="dark-lg"
-                  colorScheme="gray.600"
-                >
-                  <Center>View Profile</Center>
-                </Button>
-              </Link>
+           
 
 
               <Link as={ReactRouterLink} to="/changeDetails">

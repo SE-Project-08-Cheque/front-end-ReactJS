@@ -1,7 +1,9 @@
 import React from 'react'
-import {Modal,ModalOverlay,ModalContent,ModalHeader,ModalFooter,ModalBody,ModalCloseButton,Lorem,Button,Box} from "@chakra-ui/react";
+import {Button,Box} from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
-import { Avatar, AvatarBadge ,Center,Text,Badge,Progress} from '@chakra-ui/react';
+import { Avatar ,Center,Text} from '@chakra-ui/react';
+import SampleCustomer from './sampleCus.jpeg';
+
 
 import {
     
@@ -51,7 +53,7 @@ function Model(props) {
                   height="auto"
                 >
                   <Center mb="5px" mt="10px">
-                    <Avatar name="Customer" src="https://bit.ly/dan-abramov" />
+                    <Avatar name="Customer" src={SampleCustomer} />
                   </Center>
 
                   <Box h="50px" mb="70px">

@@ -16,8 +16,9 @@ import Navbar from './components/Navbar';
 import Dashboard from './components/pages/Dashboard';
 import UserList from './components/pages/StaffPages/containers/CustomerTable';
 
-import Staff from './components/pages/StaffPages/containers/StaffDashboard';
+import Staff from './components/pages/StaffPages/containers/StaffviewProfile';
 import Userlist from './components/pages/StaffPages/containers/CustomerTable';
+import Sprofile from './components/pages/StaffPages/containers/StaffviewProfile';
 
 function App() {
   return (
@@ -33,6 +34,10 @@ function App() {
           
           <Route path="/StaffDashboard"  component={Staff} />
           <Route path="/CustomerDetails"  component={UserList} />
+          <Route path="/view"  component={Sprofile} />
+         
+
+
 
 
         </Switch>
