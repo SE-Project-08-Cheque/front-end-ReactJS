@@ -68,9 +68,9 @@ function Sidebar(props) {
               </Badge>
             </Center>
             <Progress
-              ml="50px"
-              mr="50px"
-              colorScheme="green"
+              ml="100px"
+              mr="100px"
+              colorScheme="red"
               size="xs"
               isIndeterminate
             />
