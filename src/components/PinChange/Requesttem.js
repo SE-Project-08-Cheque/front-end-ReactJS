@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Avatar from '../PinChangeAvatarCard/Avatar';
-import Card from '../PinChangeAvatarCard/Card';
+import Avatar from './PinChangeAvatarCard/Avatar';
+import Card from './PinChangeAvatarCard/Card';
 import './RequestItem.css';
 
 import {Text } from '@chakra-ui/react';

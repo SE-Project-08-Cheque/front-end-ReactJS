@@ -1,10 +1,9 @@
 import React from 'react';
 import {Box,Center,Text} from '@chakra-ui/react';
 
-import PinChangeRequestList from '../components/PinChange/RequestList';
-import StaffHeader from '../components/StaffHeader';
-import StaffSideBar from '../components/StaffsideBar';
-import Footer from '../components/StaffFooter/StaffFooter';
+import PinChangeRequestList from '../PinChange/RequestList';
+import StaffHeader from '../StaffHeader';
+import StaffSideBar from '../StaffsideBar';
 
 const PinChangeRequests = () => {
   const Requests = [           //sample pinchange requests

@@ -12,19 +12,16 @@ import {
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import UserList from './components/pages/StaffPages/containers/CustomerTable';
 
-import Staff from './components/pages/StaffPages/containers/StaffviewProfile';
-import Userlist from './components/pages/StaffPages/containers/CustomerTable';
-import Sprofile from './components/pages/StaffPages/containers/StaffviewProfile';
-import StaffChange from './components/pages/StaffPages/containers/StaffChangeDetails';
-import StaffPassChange from './components/pages/StaffPages/containers/StaffChangePassword';
-import PinChange from './components/pages/StaffPages/containers/Security pin change requests page';
 
-import NewRegisterRequest from'./components/pages/StaffPages/containers/NewRegisterRequsts';
-import Cheque from './components/pages/StaffPages/containers/GetChequeRequests';
+import CustomerList from './components/pages/CustomerTable';
+import StaffDashboard from './components/pages/StaffviewProfile';
+import StaffChangeDetails from './components/pages/StaffChangeDetails';
+import StaffPassChange from './components/pages/StaffChangePassword';
+import PinChangeRequests from './components/pages/Security pin change requests page';
+import NewRegisterRequests from'./components/pages/NewRegisterRequsts';
+import AllChequeView from './components/pages/GetChequeRequests';
 
-import mod from './components/pages/StaffPages/components/GetChequeRequests/OneChequeModel';
 
 
 
@@ -35,18 +32,13 @@ function App() {
         
         <Switch>
           
-          <Route path="/StaffDashboard"  component={Staff} />
-          <Route path="/CustomerDetails"  component={UserList} />
-          <Route path="/view"  component={Sprofile} />
-          <Route path="/changeDetails" component={StaffChange}/>
-          <Route path="/ChangePassword" component={StaffPassChange}/>
-
-          <Route path="/pin" component={PinChange}/>
-
-          <Route path="/join" component={NewRegisterRequest}/>
-          <Route path="/cheque" component={Cheque}/>
-
-          <Route path="/mod" component={mod}/>
+          <Route path="/StaffDashboard"  component={StaffDashboard} />
+          <Route path="/CustomerDetails"  component={CustomerList} />
+          <Route path="/StaffchangeDetails" component={StaffChangeDetails}/>
+          <Route path="/StaffChangePassword" component={StaffPassChange}/>
+          <Route path="/pinRequests"        component={PinChangeRequests}/>
+          <Route path="/NewRegisterRequests"   component={NewRegisterRequests}/>
+          <Route path="/cheques" component={AllChequeView}/>
 
 
 

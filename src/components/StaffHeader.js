@@ -3,7 +3,7 @@ import { Flex, Box,Heading,Button, ReactRouterLink,Center,Menu,MenuItem,MenuGrou
 import { HamburgerIcon, EditIcon,LockIcon,ExternalLinkIcon, SettingsIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 
-import SampleProfile from './pro.jpg';
+import SampleProfile from './StaffPagePics/pro.jpg';
 
 function Navbar(props) {
   const MenuItems = ({ children }) => (
@@ -45,7 +45,7 @@ function Navbar(props) {
 
     >
       <Flex align="center" mr={5}>
-        <Link as={ReactRouterLink} to="/">
+        <Link as={ReactRouterLink} to="/StaffDashboard">
           <Heading as="h1" size="lg" letterSpacing={'-.1rem'}>
              Online Cheque
           </Heading>
@@ -79,20 +79,20 @@ function Navbar(props) {
             </MenuItems>
 
             <MenuItems>
-              <Link as={ReactRouterLink} to="/pin">
+              <Link as={ReactRouterLink} to="/pinRequests">
               Pin Change Requests
               </Link>
             </MenuItems>
 
 
             <MenuItems>
-              <Link as={ReactRouterLink} to="/join">
+              <Link as={ReactRouterLink} to="/NewRegisterRequests">
              New Join Requests
               </Link>
             </MenuItems>
 
             <MenuItems>
-              <Link as={ReactRouterLink} to="/cheque">
+              <Link as={ReactRouterLink} to="/cheques">
             Get Cheque Requests
               </Link>
             </MenuItems>

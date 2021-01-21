@@ -55,7 +55,7 @@ function Sidebar(props) {
            
 
 
-              <Link as={ReactRouterLink} to="/changeDetails">
+              <Link as={ReactRouterLink} to="/StaffchangeDetails">
                 <Button
                   h="50px"
                   w="100%"
@@ -73,7 +73,7 @@ function Sidebar(props) {
               </Link>
 
 
-              <Link as={ReactRouterLink} to="/changePassword">
+              <Link as={ReactRouterLink} to="/StaffchangePassword">
                 <Button
                   h="50px"
                   w="100%"

@@ -2,7 +2,7 @@ import React from 'react'
 import {Button,Box} from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import { Avatar ,Center,Text} from '@chakra-ui/react';
-import SampleCustomer from './sampleCus.jpeg';
+import SampleCustomer from './StaffPagePics/sampleCus.jpeg';
 
 
 import {

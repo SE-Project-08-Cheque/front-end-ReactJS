@@ -1,7 +1,7 @@
 import React from 'react';
 
 import RequestItem from './Requesttem';
-import Card from '../PinChangeAvatarCard/Card';
+import Card from './PinChangeAvatarCard/Card';
 import './RequestList.css';
 
 const RequestList = props => {
