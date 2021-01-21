@@ -2,6 +2,7 @@ import React from 'react';
 import {
   GridItem,Image,Box,Text,Link,Grid,Center,Button,FormControl,Input,InputRightElement,InputGroup,InputLeftElement,Stack,Checkbox,ReactRouterLink,
 } from '@chakra-ui/react';
+import { useMediaQuery } from "@chakra-ui/react";
 
 import {LockIcon } from '@chakra-ui/icons';
 
@@ -14,6 +15,7 @@ import StaffsideBar from '../components/StaffsideBar';
 function StaffDetailChange() {
     const [hasError, setHasError] = React.useState(false);
     const [show, setShow] = React.useState(false);
+    const [isLargerThanPhone] = useMediaQuery("(min-width: 800px)")
   
 
   return (
@@ -25,7 +27,7 @@ function StaffDetailChange() {
 
         <Box
           mt={{ base: '15px', md: '125px' }}
-          ml={{ base: '20px', md: '320px' }}
+          ml={{ base: '180px', md: '320px' }}
           pt="150px"
           h="700px"
           mr="10px"
@@ -40,6 +42,8 @@ function StaffDetailChange() {
                 templateColumns="repeat(6, 1fr)"
                 gap={2}
                 >
+
+                {isLargerThanPhone ? 
                 <GridItem rowSpan={2} colSpan={2} >
             
                     <Center>
@@ -54,7 +58,7 @@ function StaffDetailChange() {
                     </Center>
 
                     
-                </GridItem>
+                </GridItem> :null}
                 
                 <GridItem  rowSpan={2} colSpan={4}  >
 
@@ -86,6 +90,17 @@ function StaffDetailChange() {
                                     errorBorderColor="crimson"
                                 />
                                 </InputGroup>
+
+                                <InputGroup>
+                               
+
+                               <Input
+                                   type="emailr"
+                                   placeholder="Email"
+                                   aria-label="Email Address"
+                                   errorBorderColor="crimson"
+                               />
+                               </InputGroup>
                             </FormControl >
 
                             <FormControl isRequired width="60%">

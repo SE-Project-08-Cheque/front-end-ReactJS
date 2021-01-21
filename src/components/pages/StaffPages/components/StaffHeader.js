@@ -77,6 +77,25 @@ function Navbar(props) {
               Customer Details
               </Link>
             </MenuItems>
+
+            <MenuItems>
+              <Link as={ReactRouterLink} to="/pin">
+              Pin Change Requests
+              </Link>
+            </MenuItems>
+
+
+            <MenuItems>
+              <Link as={ReactRouterLink} to="/join">
+             New Join Requests
+              </Link>
+            </MenuItems>
+
+            <MenuItems>
+              <Link as={ReactRouterLink} to="/cheque">
+            Get Cheque Requests
+              </Link>
+            </MenuItems>
           </Box>
 
 

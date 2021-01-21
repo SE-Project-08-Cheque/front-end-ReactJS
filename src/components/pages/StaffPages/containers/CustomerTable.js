@@ -6,6 +6,7 @@ import UserDetails from '../components/sampleUsers';
 import DataTable from '../components/DataTable';
 import StaffHeader from '../components/StaffHeader';
 import StaffSideBar from '../components/StaffsideBar';
+import Footer from '../components/StaffFooter/StaffFooter'
 
 
 
@@ -97,6 +98,7 @@ const CustomerTable = (props) => {
 
            
         </Box>
+      
 
      </React.Fragment>
         

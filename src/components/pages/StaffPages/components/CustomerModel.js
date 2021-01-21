@@ -65,20 +65,24 @@ function Model(props) {
                   </Box>
                 </Box>
                 <Box h="50px" mb="70px">
+                <Text fontSize="1.5rem" ml="10px" color='#171923'> &nbsp; RC :25</Text>
                     <Center>
-                    <Button colorScheme="facebook" >View Received Cheques Page </Button>
+                      
+                    <Button colorScheme="facebook" width="100%">View Received Cheques Page </Button>
                     </Center>
                    
                   </Box>
                   <Box h="50px" mb="70px">
+                  <Text fontSize="1.5rem" ml="10px"> &nbsp; SC :5</Text>
                     <Center>
-                    <Button colorScheme="facebook" >View Received Cheques Page </Button>
+                    <Button colorScheme="facebook" width="100%" >View Sent Cheques Page </Button>
                     </Center>
                    
                   </Box>
                   <Box h="50px" mb="70px">
+                  <Text fontSize="1.5rem" ml="10px" width="100%"  color=""> &nbsp; FC :15</Text>
                     <Center>
-                    <Button colorScheme="facebook" >View Finished Cheques Page </Button>
+                    <Button colorScheme="facebook"  width="100%">View Finished Cheques Page </Button>
                     </Center>
                    
                   </Box>

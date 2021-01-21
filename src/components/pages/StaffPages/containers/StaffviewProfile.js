@@ -34,8 +34,9 @@ function Dashboard() {
         <Box
           mt={{ base: '15px', md: '125px' }}
           ml={{ base: '20px', md: '320px' }}
+          marginBottom="0"
           pt="150px"
-          h="700px"
+          height="100%"
           mr="10px"
         >
 
