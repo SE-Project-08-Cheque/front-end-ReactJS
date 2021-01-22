@@ -18,6 +18,7 @@ import ChangePassword from './pages/ChangePassword';
 import ChangeDetails from './pages/ChangeDetails';
 import userSignIn from './pages/userSignIn';
 import userSignUp from './pages/userSignUp';
+import forgotPass from './pages/ForgotPass';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/changeDetails" component={ChangeDetails} />
           <Route path="/userSignUp" component={userSignUp} />
           <Route path="/userSignIn" component={userSignIn} />
+          <Route path="/forgotPass" component={forgotPass} />
         </Switch>
       </ChakraProvider>
     </Router>
