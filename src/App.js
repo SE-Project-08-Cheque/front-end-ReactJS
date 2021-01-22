@@ -17,6 +17,8 @@ import Dashboard from './pages/Dashboard';
 import ChangePassword from './pages/ChangePassword';
 import ChangeDetails from './pages/ChangeDetails';
 import Welcome from './pages/Welcome';
+import SignIn from './components/signin';
+import SignUp from './components/signup';
 
 function App() {
   return (
@@ -25,11 +27,13 @@ function App() {
         <Navbar heading='onlineCheque'/>
         <Switch>
           <Route path="/welcome" exact component={Welcome} />
-          <Route path="/home" exact component={Home} />
+          <Route path="/" exact component={Home} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/changePassword" component={ChangePassword} />
           <Route path="/changeDetails" component={ChangeDetails} />
-          <Route path="/*" exact component={Welcome} />
+          <Route path="/signin" component={SignIn} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/Welcome" exact component={Welcome} />
         </Switch>
       </ChakraProvider>
     </Router>
