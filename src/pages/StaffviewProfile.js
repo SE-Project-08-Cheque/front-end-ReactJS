@@ -11,9 +11,9 @@ import {
   PhoneIcon,
 } from '@chakra-ui/icons';
 
-import StaffImg from '../StaffPagePics/pro.jpg';
-import StaffHeader from '../StaffHeader';
-import StaffsideBar from '../StaffsideBar';
+import StaffImg from '../components/StaffPagePics/pro.jpg';
+import StaffHeader from '../components/StaffHeader';
+import StaffsideBar from '../components/StaffsideBar';
 
 function Dashboard() {
     const Staff={  // sample Staff

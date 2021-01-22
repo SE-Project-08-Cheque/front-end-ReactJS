@@ -1,7 +1,7 @@
 import React from 'react';
 
-import StaffHeader from '../components/StaffHeader';
-import StaffSideBar from '../components/StaffsideBar';
+import StaffHeader from './components/StaffHeader';
+import StaffSideBar from './components/StaffsideBar';
 
 const StaffDashboard = () => {
     return (

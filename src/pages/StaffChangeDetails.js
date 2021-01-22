@@ -6,9 +6,9 @@ import { useMediaQuery } from "@chakra-ui/react";
 
 import {LockIcon } from '@chakra-ui/icons';
 
-import ChangeDetails from '../StaffPagePics/Change.jpg';
-import StaffHeader from '../StaffHeader';
-import StaffsideBar from '../StaffsideBar';
+import ChangeDetails from '../components/StaffPagePics/Change.jpg';
+import StaffHeader from '../components/StaffHeader';
+import StaffsideBar from '../components/StaffsideBar';
 
 
 

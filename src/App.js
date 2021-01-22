@@ -14,13 +14,13 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
 
-import CustomerList from './components/pages/CustomerTable';
-import StaffDashboard from './components/pages/StaffviewProfile';
-import StaffChangeDetails from './components/pages/StaffChangeDetails';
-import StaffPassChange from './components/pages/StaffChangePassword';
-import PinChangeRequests from './components/pages/Security pin change requests page';
-import NewRegisterRequests from'./components/pages/NewRegisterRequsts';
-import AllChequeView from './components/pages/GetChequeRequests';
+import CustomerList from './pages/CustomerTable';
+import StaffDashboard from './pages/StaffviewProfile';
+import StaffChangeDetails from './pages/StaffChangeDetails';
+import StaffPassChange from './pages/StaffChangePassword';
+import PinChangeRequests from './pages/Security pin change requests page';
+import NewRegisterRequests from'./pages/NewRegisterRequsts';
+import AllChequeView from './pages/GetChequeRequests';
 
 
 
@@ -39,22 +39,6 @@ function App() {
           <Route path="/pinRequests"        component={PinChangeRequests}/>
           <Route path="/NewRegisterRequests"   component={NewRegisterRequests}/>
           <Route path="/cheques" component={AllChequeView}/>
-
-
-
-
-
-          
-
-
-
-
-
-
-
-
-         
-
 
 
 

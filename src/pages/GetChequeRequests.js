@@ -2,9 +2,9 @@ import React from 'react';
 import {SimpleGrid,Box,Center,Text} from '@chakra-ui/react';
 import { useMediaQuery } from "@chakra-ui/react"
 
-import StaffHeader from "../StaffHeader";
-import StaffsideBar from "../StaffsideBar";
-import ChequeCard from '../GetChequeRequests/ChequeCard';
+import StaffHeader from "../components/StaffHeader";
+import StaffsideBar from "../components/StaffsideBar";
+import ChequeCard from '../components/GetChequeRequests/ChequeCard';
 
 
 

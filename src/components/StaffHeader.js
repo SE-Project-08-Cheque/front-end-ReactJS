@@ -123,11 +123,18 @@ function Navbar(props) {
         </MenuButton>
         <MenuList>
           <MenuGroup title="Profile" color="#1A202C">
+          <Link as={ReactRouterLink}  to="/StaffDashboard">
             <MenuItem color="#1A202C"><ExternalLinkIcon/> &nbsp; My Profile</MenuItem>
+          </Link>
+            <Link as={ReactRouterLink}  to="/StaffchangeDetails">
             <MenuItem color="#1A202C"> <EditIcon/> &nbsp; Change Profile</MenuItem>
+            </Link>
           </MenuGroup>
           <MenuDivider />
+
+          <Link as={ReactRouterLink}  to="/StaffChangePassword">
             <MenuItem color="#1A202C"> <LockIcon/> &nbsp; Change Password</MenuItem>
+          </Link>
          
           <Link as={ReactRouterLink}  to="/">
             <MenuItem color="#1A202C" > <SettingsIcon/> &nbsp; Log Out</MenuItem>

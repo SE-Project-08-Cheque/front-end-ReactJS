@@ -2,10 +2,10 @@ import React,{useState} from 'react';
 import { Input,Stack,Checkbox,Box,Center } from "@chakra-ui/react";
 
 
-import UserDetails from '../sampleUsers';
-import DataTable from '../DataTable';
-import StaffHeader from '../StaffHeader';
-import StaffSideBar from '../StaffsideBar';
+import UserDetails from '../components/sampleUsers';
+import DataTable from '../components/DataTable';
+import StaffHeader from '../components/StaffHeader';
+import StaffSideBar from '../components/StaffsideBar';
 
 
 

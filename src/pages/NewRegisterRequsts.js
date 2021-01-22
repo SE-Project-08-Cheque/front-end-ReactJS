@@ -1,8 +1,8 @@
 import React from 'react';
 import {Box,Center,Text} from '@chakra-ui/react'
-import NewRequstsList from '../NewRegisterRequestComp/NRL';
-import SHeader from '../StaffHeader';
-import SideBar from '../StaffsideBar';
+import NewRequstsList from '../components/NewRegisterRequestComp/NRL';
+import SHeader from '../components/StaffHeader';
+import SideBar from '../components/StaffsideBar';
 
 const Users = () => {
   const joinReq = [     // sample data
