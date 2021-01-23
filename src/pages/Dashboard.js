@@ -23,8 +23,10 @@ import {
   Spinner,
   Tooltip,
 } from '@chakra-ui/react';
+
 import Sidebar from '../components/Sidebar';
 import Alert from '../components/Alert';
+
 import {
   ArrowRightIcon,
   CheckCircleIcon,
@@ -35,9 +37,11 @@ import {
 import '../components/MainSection.css';
 import Footer from '../components/Footer';
 
+
 function Dashboard() {
   return (
     <>
+
       <div className="dashboard">
         <Sidebar disable={[false, true]} />
 
