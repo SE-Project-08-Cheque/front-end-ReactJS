@@ -26,6 +26,7 @@ import {
   Divider,
 } from '@chakra-ui/react';
 import { Avatar, AvatarBadge } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 // sidebar nav config
 
@@ -41,11 +42,11 @@ function Sidebar(props) {
         height={{ base: '520px', md: '100%' }}
         borderTop="1px"
         borderTopColor="gray.600"
-        borderTopWidth="97px"
+        borderTopWidth="90px"
         position="fixed"
         rounded="md"
         backgroundColor="gray.700"
-        zIndex="9999"
+        zIndex="30"
       >
         <Box
           width="100%"
@@ -81,34 +82,39 @@ function Sidebar(props) {
               spacing={5}
               align="stretch"
             >
-              <Divider colorScheme="green" orientation="horizontal" />
+              <Link as={ReactRouterLink} to="/changeDetails">
+                <Button
+                  h="50px"
+                  w="100%"
+                  _hover={{
+                    background: 'gray.800',
+                    color: 'white',
+                    transitionDuration: '0.6s',
+                  }}
+                  rounded="box"
+                  boxShadow="dark-lg"
+                  colorScheme="gray.600"
+                >
+                  <Center>Change Details</Center>
+                </Button>
+              </Link>
 
-              <Button
-                h="50px"
-                _hover={{
-                  background: 'gray.800',
-                  color: 'white',
-                  transitionDuration: '0.6s',
-                }}
-                rounded="box"
-                boxShadow="dark-lg"
-                colorScheme="gray.600"
-              >
-                <Text color="white">Change Details</Text>
-              </Button>
-              <Button
-                h="50px"
-                _hover={{
-                  background: 'gray.800',
-                  color: 'white',
-                  transitionDuration: '0.6s',
-                }}
-                rounded="box"
-                boxShadow="dark-lg"
-                colorScheme="gray.600"
-              >
-                <Text color="white">Change Password</Text>
-              </Button>
+              <Link as={ReactRouterLink} to="/changePassword">
+                <Button
+                  h="50px"
+                  w="100%"
+                  _hover={{
+                    background: 'gray.800',
+                    color: 'white',
+                    transitionDuration: '0.6s',
+                  }}
+                  rounded="box"
+                  boxShadow="dark-lg"
+                  colorScheme="gray.600"
+                >
+                  Change Password
+                </Button>
+              </Link>
 
               <Divider orientation="horizontal" />
             </VStack>

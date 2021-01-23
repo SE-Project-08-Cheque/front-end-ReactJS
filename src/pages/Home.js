@@ -12,17 +12,17 @@ import {
   Button,
 } from '@chakra-ui/react';
 
+import MainSection from '../components/MainSection';
+import Footer from '../components/Footer';
+
+
+
 function Home() {
   return (
     <>
-      <Center w="100%" h="auto" p={4} pt="180px" pb="300px">
-        <Box w="90%" h="auto" borderWidth="1px" borderRadius="lg" p="10px">
-          sadsasdsdads
-        </Box>
-        <Button colorScheme="yellow" variant="solid">
-          Button
-        </Button>
-      </Center>
+
+     <MainSection />
+     <Footer/>
     </>
   );
 }

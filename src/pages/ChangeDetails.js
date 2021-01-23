@@ -21,12 +21,13 @@ import {
   InputLeftElement,
   Stack,
   Checkbox,
+  ReactRouterLink,
 } from '@chakra-ui/react';
 import Sidebar from '../components/Sidebar';
 import { EmailIcon, LockIcon } from '@chakra-ui/icons';
 import { MdArrowBack } from 'react-icons/md';
 
-function ChangePassword() {
+function ChangeDetails() {
   const [hasError, setHasError] = React.useState(false);
   const [show, setShow] = React.useState(false);
 
@@ -56,7 +57,7 @@ function ChangePassword() {
           borderRadius="20px"
         >
           <Center pb="10px">
-            <h1>Change Your Password!</h1>
+            <h1>Change Details!</h1>
           </Center>
           <Divider mb="50px" orientation="horizontal" />
 
@@ -70,17 +71,48 @@ function ChangePassword() {
 
                   <Input
                     type="text"
-                    placeholder="User ID"
-                    aria-label="userid"
-                    isInvalid
+                    placeholder="Name"
+                    aria-label="name"
                     errorBorderColor="crimson"
                   />
                 </InputGroup>
               </FormControl>
+
               <FormControl isRequired>
+                <InputGroup>
+                  <InputLeftElement>
+                    <i class="fas fa-phone-alt"></i>
+                  </InputLeftElement>
+
+                  <Input
+                    type="text"
+                    placeholder="Phone Number"
+                    aria-label="phoneNumber"
+                    errorBorderColor="crimson"
+                  />
+                </InputGroup>
+              </FormControl>
+
+              <FormControl isRequired>
+                <InputGroup>
+                  <InputLeftElement>
+                    <i class="fas fa-map-marker-alt"></i>
+                  </InputLeftElement>
+
+                  <Input
+                    type="text"
+                    placeholder="Address"
+                    aria-label="address"
+                    errorBorderColor="crimson"
+                  />
+                </InputGroup>
+              </FormControl>
+
+              <FormControl isRequired pb="70px">
                 <InputGroup>
                   <InputLeftElement children={<LockIcon />} />
                   <Input
+                    isInvalid
                     type={show ? 'text' : 'password'}
                     placeholder="Current Password"
                     aria-label="Password"
@@ -96,61 +128,21 @@ function ChangePassword() {
                   </InputRightElement>
                 </InputGroup>
               </FormControl>
-              <FormControl isRequired>
-                <InputGroup>
-                  <InputLeftElement children={<LockIcon />} />
-                  <Input
-                    type={show ? 'text' : 'password'}
-                    placeholder="New Password"
-                    aria-label="Password"
-                  />
-                  <InputRightElement width="4.5rem">
-                    <Button
-                      h="1.75rem"
-                      size="sm"
-                      onClick={() => setShow(!show)}
-                    >
-                      {show ? 'Hide' : 'Show'}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
-                <FormHelperText>
-                Must be 8-15 characters long
-                </FormHelperText>
-              </FormControl>
-
-              <FormControl isRequired>
-                <InputGroup>
-                  <InputLeftElement children={<LockIcon />} />
-                  <Input
-                    type={show ? 'text' : 'password'}
-                    placeholder="Re-Enter NewPassword"
-                    aria-label="Password"
-                  />
-                  <InputRightElement width="4.5rem">
-                    <Button
-                      h="1.75rem"
-                      size="sm"
-                      onClick={() => setShow(!show)}
-                    >
-                      {show ? 'Hide' : 'Show'}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
-                <FormHelperText>
-                  Re-Enter your new password to confirm
-                </FormHelperText>
-                
-              </FormControl>
-              <Checkbox pt='70px' pb='30px' isRequired>Confirm</Checkbox>
-              <Button
-              mt='50px'
-                colorScheme="blue"
-                type="submit"
-                onClick={() => setHasError(!hasError)}
-              >
-                Change
-              </Button>
+              <Checkbox pt='0px' isRequired>Confirm
+              </Checkbox>
+              <small>Confirm before updating</small>
+              
+              <Link as={ReactRouterLink} to="/changePassword">
+                <Button
+                  w="100%"
+                  boxShadow="dark-lg"
+                  colorScheme="red"
+                  type="submit"
+                  onClick={() => setHasError(!hasError)}
+                >
+                  Update
+                </Button>
+              </Link>
             </Stack>
           </form>
         </Box>
@@ -159,4 +151,4 @@ function ChangePassword() {
   );
 }
 
-export default ChangePassword;
+export default ChangeDetails;

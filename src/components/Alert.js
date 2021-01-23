@@ -39,7 +39,7 @@ function Alert() {
   
     return (
       <>
-        <Button colorScheme="red" onClick={() => setIsOpen(true)}>
+        <Button variant='outline' colorScheme="blue" onClick={() => setIsOpen(true)}>
           Change Profile Picture
         </Button>
   
@@ -50,7 +50,7 @@ function Alert() {
         >
           <AlertDialogOverlay>
             <AlertDialogContent>
-              <AlertDialogHeader mt='150px' fontSize="lg" fontWeight="bold">
+              <AlertDialogHeader mt='50px' fontSize="lg" fontWeight="bold">
                 Change Profile Picture
               </AlertDialogHeader>
   

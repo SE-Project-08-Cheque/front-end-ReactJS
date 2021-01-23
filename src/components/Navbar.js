@@ -11,8 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, MoonIcon, SettingsIcon } from '@chakra-ui/icons';
 
-
-import { Avatar, AvatarBadge } from "@chakra-ui/react"
+import { Avatar, AvatarBadge } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
 function Navbar(props) {
@@ -49,10 +48,11 @@ function Navbar(props) {
       zIndex="10000"
     >
       <Flex align="center" mr={5}>
-      <Link as={ReactRouterLink} to="/">
-        <Heading as="h1" size="lg" letterSpacing={'-.1rem'}>
-          {props.heading}
-        </Heading>
+        <Link as={ReactRouterLink} to="/">
+          <Heading as="h1" size="lg" letterSpacing={'-.1rem'}>
+            {props.heading}
+            <i class="fab fa-typo3" />
+          </Heading>
         </Link>
       </Flex>
 
@@ -68,22 +68,22 @@ function Navbar(props) {
         pl="20px"
       >
         <MenuItems>
+          <Link as={ReactRouterLink} to="/">
+            Home
+          </Link>
+        </MenuItems>
+        <MenuItems>
           <Link as={ReactRouterLink} to="/Dashboard">
             Dashboard
           </Link>
         </MenuItems>
-        <MenuItems>About US</MenuItems>
+        <MenuItems>Help me</MenuItems>
       </Box>
 
-      <box paddingleft="5px">
-          <Avatar src="https://bit.ly/broken-link" />
-          </box>
       <Box
         display={{ base: show ? 'block' : 'none', md: 'block' }}
         mt={{ base: 4, md: 0 }}
       >
-          
-          
         <IconButton
           aria-label="Call Segun"
           size="md"
@@ -94,7 +94,7 @@ function Navbar(props) {
         />
 
         <Button bg="transparent" border="1px">
-          Log in
+          Log out
         </Button>
       </Box>
     </Flex>
