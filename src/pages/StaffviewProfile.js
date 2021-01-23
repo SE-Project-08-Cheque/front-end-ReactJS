@@ -1,95 +1,78 @@
 import React from 'react';
 import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-  Center,
-  Button,
-  Flex,
-  Image,
-  AlertDialog,
-  Stack,
-  Checkbox,
-  IconButton,
-  FormControl,
-  FormLabel,
-  Input,
-  FormHelperText,
-  Spinner,
-  Tooltip,
-  Avatar,
-  HStack,
-  PinInput,
-  PinInputField,
+  GridItem,Box,Text,Grid,Center,Button,Flex,Image,IconButton,Tooltip,
 } from '@chakra-ui/react';
 
-import Sidebar from '../components/Sidebar';
 import {
+    InfoOutlineIcon,
   ArrowRightIcon,
   CheckCircleIcon,
   EmailIcon,
   PhoneIcon,
-  StarIcon,
 } from '@chakra-ui/icons';
-import { AvatarBadge } from '@chakra-ui/react';
-import '../components/MainSection.css';
 
+import StaffImg from '../components/StaffPagePics/pro.jpg';
+import StaffHeader from '../components/StaffHeader';
+import StaffsideBar from '../components/StaffsideBar';
 
 function Dashboard() {
+    const Staff={  // sample Staff
+       
+        name: 'Aires',
+        Email:'olpai.com',
+        phone: '0774524255',
+        Address:'thimpili theru'
+      }
+
   return (
-    <>
+    <React.Fragment>
+        <StaffHeader/>
+        <StaffsideBar/>
 
-      <div className="dashboard">
-        <Sidebar disable={[false, true]} />
+        <Box height="100%" bg="#F7FAFC">
+
         <Box
-          borderStyle="solid"
-          borderColor="gray.800"
-          boarderRadius="200px"
-          mt={{ base: '400px', md: '10px' }}
+          mt={{ base: '15px', md: '125px' }}
           ml={{ base: '20px', md: '320px' }}
+          marginBottom="0"
           pt="150px"
-          h="700px"
-          mr="20px"
-          left="0px"
-          backgroundColor="red"
+          height="100%"
+          mr="10px"
         >
-          <Box
-            borderStyle="solid"
-            borderColor="gray.200"
-            borderWidth="2px"
-            p="10px"
-            pt="30px"
-            mt="-20px"
-            borderRadius="20px"
-          >
-            <Center>
-              <Avatar bg="red.500" size="lg" mb='30px'/>
-            </Center>
-            <Center>
-              <HStack>
-                <PinInput>
-                  <PinInputField />
-                  <PinInputField />
-                  <PinInputField />
-                  <PinInputField />
-                </PinInput>
-              </HStack>
-            </Center>
 
-            <Box
-              borderStyle="solid"
-              borderColor="gray.200"
-              borderWidth="2px"
-              h="70px"
-              m="10px"
-              mt="50px"
-              borderRadius="10px"
-            >
+            <Grid
+                h="600px"
+                templateRows="repeat(2, 1fr)"
+                templateColumns="repeat(6, 1fr)"
+                gap={2}
+                >
+                <GridItem rowSpan={2} colSpan={2} >
+                    <Center>
+                     <Image
+                        height="100%"
+                        borderRadius="10px"
+                        ml="0px"
+                        objectFit="cover"
+                        src={StaffImg}
+                        alt="Staff"
+                    />
+                    </Center>
+
+                    
+                </GridItem>
+                
+                <GridItem  rowSpan={2} colSpan={4}  >
+
+                <Box
+                    borderStyle="solid"
+                    borderColor="#3182CE"
+                    borderWidth="1px"
+                    h="70px"
+                    w="50%"
+                    m="10px"
+                    mt="50px"
+                    borderRadius="10px"
+                >
               <Tooltip label="Name" fontSize="md">
                 <Text pl="2px" color="gray.900" isTruncated>
                   <IconButton
@@ -97,18 +80,19 @@ function Dashboard() {
                     variant="outline"
                     colorScheme="teal"
                     aria-label="Send email"
-                    icon={<ArrowRightIcon />}
+                    icon={< InfoOutlineIcon/>}
                   />
-                  C.P.Amarasena
+                  {Staff.name}
                 </Text>
               </Tooltip>
             </Box>
             <Box
               borderStyle="solid"
-              borderColor="gray.200"
-              borderWidth="2px"
+              borderColor="#3182CE"
+              borderWidth="1px"
               h="70px"
               m="10px"
+              w="50%"
               borderRadius="10px"
             >
               <Tooltip label="Phone number" fontSize="md">
@@ -119,16 +103,17 @@ function Dashboard() {
                     aria-label="Call"
                     icon={<PhoneIcon />}
                   />
-                  +94715050200
+                    {Staff.phone}
                 </Text>
               </Tooltip>
             </Box>
 
             <Box
               borderStyle="solid"
-              borderColor="gray.200"
-              borderWidth="2px"
+              borderColor="#3182CE"
+              borderWidth="1px"
               h="70px"
+              w="50%"
               m="10px"
               borderRadius="10px"
             >
@@ -140,17 +125,18 @@ function Dashboard() {
                     aria-label="Send email"
                     icon={<EmailIcon />}
                   />
-                  chalindumalshika@gmail.com
+                  {Staff.Email}
                 </Text>
               </Tooltip>
             </Box>
 
             <Box
               borderStyle="solid"
-              borderColor="gray.200"
-              borderWidth="2px"
+              borderColor="#3182CE"
+              borderWidth="1px"
               h="70px"
               m="10px"
+              w="50%"
               borderRadius="10px"
             >
               <Tooltip label="Address" fontSize="md">
@@ -161,14 +147,23 @@ function Dashboard() {
                     aria-label="Send email"
                     icon={<CheckCircleIcon />}
                   />
-                  No: 96/C,Avissawella, Colombo
+                  {Staff.Address}
                 </Text>
               </Tooltip>
             </Box>
-          </Box>
+
+
+                </GridItem>
+
+                </Grid>
+          
+        
         </Box>
-      </div>
-    </>
+
+        </Box>
+       
+      
+    </React.Fragment>
   );
 }
 

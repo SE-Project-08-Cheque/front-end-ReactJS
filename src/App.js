@@ -11,6 +11,19 @@ import {
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+
+
+
+import CustomerList from './pages/CustomerTable';
+import StaffDashboard from './pages/StaffviewProfile';
+import StaffChangeDetails from './pages/StaffChangeDetails';
+import StaffPassChange from './pages/StaffChangePassword';
+import PinChangeRequests from './pages/Security pin change requests page';
+import NewRegisterRequests from'./pages/NewRegisterRequsts';
+import AllChequeView from './pages/GetChequeRequests';
+
+
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -27,7 +40,9 @@ import EnterNewPassword from './pages/EnterNewPassword';
 
 
 
+
 function App() {
+
 
   const DefaultPageRoute = ({ component: Component, ...rest }) => {
     return (
@@ -64,6 +79,7 @@ function App() {
   }
 
 
+
   return (
     <Router>
       <ChakraProvider>
@@ -79,6 +95,7 @@ function App() {
           <LandingPageRoute path="/forgotPassword" component={forgotPass} />
           <LandingPageRoute path="/enterpin" component={EnterPin} />
           <LandingPageRoute path="/newpass" component={EnterNewPassword} />
+
         </Switch>
       </ChakraProvider>
     </Router>
