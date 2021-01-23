@@ -1,14 +1,12 @@
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
-
 import CssBaseline from '@material-ui/core/CssBaseline';
-
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import './MainSection.css';
-import { isNumeric, ValidateEmail } from '../components/Validation';
+import { isNumeric, isRequired, ValidateEmail } from '../components/Validation';
 import { FormHelperText } from '@material-ui/core';
 import {
   ChakraProvider,
@@ -55,12 +53,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ForgotPassword() {
+export default function EnterPin() {
   const classes = useStyles();
 
   const [hasError, setHasError] = React.useState(false);
   const [data, setData] = React.useState({
-    email: '',
+    pin: '',
   });
 
   const [validation, setValidation] = React.useState({
@@ -72,24 +70,26 @@ export default function ForgotPassword() {
     var value = event.target.value;
     var name = event.target.name;
 
-    if (name === 'email') {
-      ValidateEmail(value, validation, setValidation, 0);
+    if (name === 'pin') {
+      isNumeric(value, validation, setValidation, 0, 'pin');
     }
     setData({ ...data, [event.target.name]: value });
   };
 
   const validateBefore = () => {
-    ValidateEmail(data.email, validation, setValidation, 0);
-    if (!validation.validation[0]) {
+    isNumeric(data.pin, validation, setValidation, 0, 'PIN');
+    if (validation.validation[0]) {
+      console.log();
       return true;
     }
     return false;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = event => {
+    event.preventDefault();
     var isValid = validateBefore();
     if (!isValid) {
-      return false;
+
     }
   };
 
@@ -102,7 +102,7 @@ export default function ForgotPassword() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Send Confirmation Email
+            Enter Received Pin
           </Typography>
           <form action="submit">
             <Stack spacing={3}>
@@ -114,10 +114,10 @@ export default function ForgotPassword() {
 
                   <Input
                     type="text"
-                    placeholder="Email*"
+                    placeholder="PIN*"
                     aria-label="name"
                     errorBorderColor="crimson"
-                    name="email"
+                    name="pin"
                     value={data.name}
                     onChange={event => handleChange(event)}
                     isInvalid={validation.validation[0]}
@@ -131,13 +131,13 @@ export default function ForgotPassword() {
               <Link as={ReactRouterLink} to="/changePassword">
                 <Button
                   mt="20px"
-                  w="100%"
+                  w="400px"
                   boxShadow="dark-lg"
                   colorScheme="blue"
                   type="submit"
-                  onClick={handleSubmit}
+                  onClick={event => handleSubmit(event)}
                 >
-                  Send
+                  Confirm
                 </Button>
               </Link>
             </Stack>

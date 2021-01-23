@@ -24,12 +24,53 @@ import {
   ReactRouterLink,
 } from '@chakra-ui/react';
 import Sidebar from '../components/Sidebar';
-import { EmailIcon, LockIcon } from '@chakra-ui/icons';
-import { MdArrowBack } from 'react-icons/md';
+import { isNumeric, isRequired } from '../components/Validation';
 
 function ChangeDetails() {
   const [hasError, setHasError] = React.useState(false);
   const [show, setShow] = React.useState(false);
+  const [data, setData] = React.useState({
+    name: '',
+    phoneNumber: '',
+    address: '',
+    currentPassword: '',
+  });
+  const validateBefore = () => {
+    isRequired(data.name, validation, setValidation, 0, 'name');
+    isNumeric(data.phoneNumber, validation, setValidation, 1, 'phone number');
+    isRequired(data.address, validation, setValidation, 2, 'address');
+    if (!validation.validation[0] && !validation.validation[1] && !validation.validation[2] ) {
+      return true;
+    }  return false;
+  }
+  const [validation, setValidation] = React.useState({
+    validation: [false, false, false, false],
+    errorMessage: ['', '', '', '']
+});
+
+  const handleChange = event => {
+    var value = event.target.value;
+    var name = event.target.name;
+
+    if (name === 'name') {
+      isRequired(value, validation, setValidation, 0, 'name');
+    } else if (name === 'phoneNumber') {
+      isNumeric(value, validation, setValidation, 1, 'phone number');
+    } else if (name === 'address') {
+      isRequired(value, validation, setValidation, 2, 'address');
+    }
+    else if (name === 'currentPassword') {
+      isRequired(value, validation, setValidation, 2, 'currentPassword');
+    }
+    setData({ ...data, [event.target.name]: value });
+  };
+
+  const handleSubmit = () => {
+    var isValid = validateBefore()
+    if (!isValid) {
+
+    }
+  }
 
   return (
     <>
@@ -74,8 +115,13 @@ function ChangeDetails() {
                     placeholder="Name"
                     aria-label="name"
                     errorBorderColor="crimson"
+                    name="name"
+                    value={data.name}
+                    onChange={event => handleChange(event)}
+                    isInvalid={validation.validation[0]}
                   />
                 </InputGroup>
+                <FormHelperText color='crimson'>{validation.errorMessage[0]}</FormHelperText>
               </FormControl>
 
               <FormControl isRequired>
@@ -89,8 +135,13 @@ function ChangeDetails() {
                     placeholder="Phone Number"
                     aria-label="phoneNumber"
                     errorBorderColor="crimson"
+                    name="phoneNumber"
+                    value={data.phoneNumber}
+                    onChange={event => handleChange(event)}
+                    isInvalid={validation.validation[1]}
                   />
                 </InputGroup>
+                <FormHelperText color='crimson'>{validation.errorMessage[1]}</FormHelperText>
               </FormControl>
 
               <FormControl isRequired>
@@ -104,41 +155,28 @@ function ChangeDetails() {
                     placeholder="Address"
                     aria-label="address"
                     errorBorderColor="crimson"
+                    name="address"
+                    value={data.address}
+                    onChange={event => handleChange(event)}
+                    isInvalid={validation.validation[2]}
                   />
                 </InputGroup>
+                <FormHelperText color='crimson'>{validation.errorMessage[2]}</FormHelperText>
               </FormControl>
 
-              <FormControl isRequired pb="70px">
-                <InputGroup>
-                  <InputLeftElement children={<LockIcon />} />
-                  <Input
-                    isInvalid
-                    type={show ? 'text' : 'password'}
-                    placeholder="Current Password"
-                    aria-label="Password"
-                  />
-                  <InputRightElement width="4.5rem">
-                    <Button
-                      h="1.75rem"
-                      size="sm"
-                      onClick={() => setShow(!show)}
-                    >
-                      {show ? 'Hide' : 'Show'}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
-              </FormControl>
-              <Checkbox pt='0px' isRequired>Confirm
+              
+              <Checkbox pt="0px" isRequired>
+                Confirm
               </Checkbox>
               <small>Confirm before updating</small>
-              
+
               <Link as={ReactRouterLink} to="/changePassword">
                 <Button
                   w="100%"
                   boxShadow="dark-lg"
                   colorScheme="red"
                   type="submit"
-                  onClick={() => setHasError(!hasError)}
+                  onClick={handleSubmit}
                 >
                   Update
                 </Button>

@@ -24,11 +24,55 @@ import {
 } from '@chakra-ui/react';
 import Sidebar from '../components/Sidebar';
 import { EmailIcon, LockIcon } from '@chakra-ui/icons';
-import { MdArrowBack } from 'react-icons/md';
+import { isNumeric, isRequired } from '../components/Validation';
 
 function ChangePassword() {
   const [hasError, setHasError] = React.useState(false);
-  const [show, setShow] = React.useState(false);
+  const [show, setShow] = React.useState({
+    button1: false,
+    button2: false,
+    button3: false,
+  });
+
+  const [data, setData] = React.useState({
+    currentPass: '',
+    newPass: '',
+    newPassAgain: '',
+  });
+  const validateBefore = () => {
+    isRequired(data.currentPass, validation, setValidation, 0, 'curren Password');
+    isRequired(data.newPass, validation, setValidation, 1, 'new password');
+    isRequired(data.newPassAgain, validation, setValidation, 2, 'new password again');
+    if (!validation.validation[0] && !validation.validation[1] && !validation.validation[2] ) {
+      return true;
+    }  return false;
+  }
+  const [validation, setValidation] = React.useState({
+    validation: [false, false, false],
+    errorMessage: ['', '', '']
+});
+
+  const handleChange = event => {
+    var value = event.target.value;
+    var name = event.target.name;
+
+    if (name === 'currentPass') {
+      isRequired(value, validation, setValidation, 0, 'current password');
+    } else if (name === 'newPass') {
+      isRequired(value, validation, setValidation, 1, 'new password');
+    } else if (name === 'newPassAgain') {
+      isRequired(value, validation, setValidation, 2, 'new password again');
+    }
+    setData({ ...data, [event.target.name]: value });
+  };
+
+
+  const handleSubmit = () => {
+    var isValid = validateBefore();
+    if (!isValid) {
+      show.button1 = false;
+    }
+  };
 
   return (
     <>
@@ -64,90 +108,95 @@ function ChangePassword() {
             <Stack spacing={3}>
               <FormControl isRequired>
                 <InputGroup>
-                  <InputLeftElement>
-                    <i class="fas fa-user"></i>
-                  </InputLeftElement>
-
-                  <Input
-                    type="text"
-                    placeholder="User ID"
-                    aria-label="userid"
-                    isInvalid
-                    errorBorderColor="crimson"
-                  />
-                </InputGroup>
-              </FormControl>
-              <FormControl isRequired>
-                <InputGroup>
                   <InputLeftElement children={<LockIcon />} />
                   <Input
-                    type={show ? 'text' : 'password'}
+                    type={show.button1 ? 'text' : 'password'}
                     placeholder="Current Password"
                     aria-label="Password"
+                    name="currentPass"
+                    value={data.name}
+                    onChange={event => handleChange(event)}
+                    isInvalid={validation.validation[0]}
                   />
                   <InputRightElement width="4.5rem">
                     <Button
                       h="1.75rem"
                       size="sm"
-                      onClick={() => setShow(!show)}
+                      onClick={() =>
+                        setShow({ ...show, button1: !show.button1 })
+                      }
                     >
-                      {show ? 'Hide' : 'Show'}
+                      {show.button1 ? 'Hide' : 'Show'}
                     </Button>
                   </InputRightElement>
                 </InputGroup>
+                <FormHelperText color='crimson'>{validation.errorMessage[0]}</FormHelperText>
               </FormControl>
               <FormControl isRequired>
                 <InputGroup>
                   <InputLeftElement children={<LockIcon />} />
                   <Input
-                    type={show ? 'text' : 'password'}
+                    type={show.button2 ? 'text' : 'password'}
                     placeholder="New Password"
                     aria-label="Password"
+                    name="newPass"
+                    value={data.name}
+                    onChange={event => handleChange(event)}
+                    isInvalid={validation.validation[1]}
                   />
                   <InputRightElement width="4.5rem">
                     <Button
                       h="1.75rem"
                       size="sm"
-                      onClick={() => setShow(!show)}
+                      onClick={() =>
+                        setShow({ ...show, button2: !show.button2 })
+                      }
                     >
-                      {show ? 'Hide' : 'Show'}
+                      {show.button2 ? 'Hide' : 'Show'}
                     </Button>
                   </InputRightElement>
                 </InputGroup>
-                <FormHelperText>
-                Must be 8-15 characters long
-                </FormHelperText>
+                <FormHelperText color='crimson'>{validation.errorMessage[1]}</FormHelperText>
+                <FormHelperText>Must be 8-15 characters long</FormHelperText>
               </FormControl>
 
               <FormControl isRequired>
                 <InputGroup>
                   <InputLeftElement children={<LockIcon />} />
                   <Input
-                    type={show ? 'text' : 'password'}
+                    type={show.button3 ? 'text' : 'password'}
                     placeholder="Re-Enter NewPassword"
                     aria-label="Password"
+                    name="newPassAgain"
+                    value={data.name}
+                    onChange={event => handleChange(event)}
+                    isInvalid={validation.validation[2]}
                   />
                   <InputRightElement width="4.5rem">
                     <Button
                       h="1.75rem"
                       size="sm"
-                      onClick={() => setShow(!show)}
+                      onClick={() =>
+                        setShow({ ...show, button3: !show.button3 })
+                      }
                     >
-                      {show ? 'Hide' : 'Show'}
+                      {show.button3 ? 'Hide' : 'Show'}
                     </Button>
                   </InputRightElement>
                 </InputGroup>
+                <FormHelperText color='crimson'>{validation.errorMessage[2]}</FormHelperText>
                 <FormHelperText>
                   Re-Enter your new password to confirm
                 </FormHelperText>
-                
               </FormControl>
-              <Checkbox pt='70px' pb='30px' isRequired>Confirm</Checkbox>
+              <Checkbox pt="70px" pb="30px" isRequired>
+                Confirm
+              </Checkbox>
               <Button
-              mt='50px'
+                mt="50px"
                 colorScheme="blue"
                 type="submit"
-                onClick={() => setHasError(!hasError)}
+                onClick={handleSubmit}
               >
                 Change
               </Button>

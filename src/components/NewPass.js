@@ -1,14 +1,12 @@
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
-
 import CssBaseline from '@material-ui/core/CssBaseline';
-
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import './MainSection.css';
-import { isNumeric, ValidateEmail } from '../components/Validation';
+import { isNumeric, isRequired, ValidateEmail } from '../components/Validation';
 import { FormHelperText } from '@material-ui/core';
 import {
   ChakraProvider,
@@ -55,41 +53,46 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ForgotPassword() {
+export default function NewPass() {
   const classes = useStyles();
-
+  const [show, setShow] = React.useState({ button1: false, button2: false });
   const [hasError, setHasError] = React.useState(false);
   const [data, setData] = React.useState({
-    email: '',
+    newPass: '',
+    newPassAgain: '',
   });
 
   const [validation, setValidation] = React.useState({
-    validation: [false],
-    errorMessage: [''],
+    validation: [false,false],
+    errorMessage: ['', ''],
   });
 
   const handleChange = event => {
     var value = event.target.value;
     var name = event.target.name;
 
-    if (name === 'email') {
-      ValidateEmail(value, validation, setValidation, 0);
+    if (name === 'newPass') {
+      isRequired(value, validation, setValidation, 0, 'newPass');
+    } else if (name === 'newPassAgain') {
+      isRequired(value, validation, setValidation, 1, 'newPassAgain');
     }
     setData({ ...data, [event.target.name]: value });
   };
 
   const validateBefore = () => {
-    ValidateEmail(data.email, validation, setValidation, 0);
-    if (!validation.validation[0]) {
+    isRequired(data.pin, validation, setValidation, 0, 'NewPassword');
+    isRequired(data.pin, validation, setValidation, 1, 'NewPasswordAgain');
+    if (!validation.validation[0] && !validation.validation[1]) {
       return true;
     }
     return false;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = event => {
+    event.preventDefault();
     var isValid = validateBefore();
     if (!isValid) {
-      return false;
+
     }
   };
 
@@ -102,31 +105,66 @@ export default function ForgotPassword() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Send Confirmation Email
+            Enter New Password
           </Typography>
           <form action="submit">
             <Stack spacing={3}>
-              <FormControl isRequired>
+            <FormControl isRequired>
                 <InputGroup>
-                  <InputLeftElement>
-                    <i class="fas fa-user"></i>
-                  </InputLeftElement>
-
+                  <InputLeftElement children={<LockIcon />} />
                   <Input
-                    type="text"
-                    placeholder="Email*"
-                    aria-label="name"
-                    errorBorderColor="crimson"
-                    name="email"
+                    type={show.button1 ? 'text' : 'password'}
+                    placeholder="New Password"
+                    aria-label="Password"
+                    name="newPass"
                     value={data.name}
                     onChange={event => handleChange(event)}
                     isInvalid={validation.validation[0]}
                   />
+                  <InputRightElement width="4.5rem">
+                    <Button
+                      h="1.75rem"
+                      size="sm"
+                      onClick={() => setShow({...show, button1: !show.button1 })}
+                    >
+                      {show.button1 ? 'Hide' : 'Show'}
+                    </Button>
+                  </InputRightElement>
                 </InputGroup>
                 <FormHelperText color="crimson">
                   {validation.errorMessage[0]}
                 </FormHelperText>
               </FormControl>
+              <FormControl isRequired>
+                <InputGroup>
+                  <InputLeftElement children={<LockIcon />} />
+                  <Input
+                    type={show.button2 ? 'text' : 'password'}
+                    placeholder="Re-Enter New Password"
+                    aria-label="Password"
+                    w='400px'
+                    name="newPassAgain"
+                    value={data.name}
+                    onChange={event => handleChange(event)}
+                    isInvalid={validation.validation[1]}
+                  />
+                  <InputRightElement width="4.5rem">
+                    <Button
+                      h="1.75rem"
+                      size="sm"
+                      onClick={() => setShow({...show, button2: !show.button2 })}
+                    >
+                      {show.button2 ? 'Hide' : 'Show'}
+                    </Button>
+                  </InputRightElement>
+                </InputGroup>
+                <FormHelperText color="crimson">
+                  {validation.errorMessage[1]}
+                </FormHelperText>
+              </FormControl>
+              <FormHelperText>
+                Must be 8-15 characters long
+                </FormHelperText>
 
               <Link as={ReactRouterLink} to="/changePassword">
                 <Button
@@ -135,9 +173,9 @@ export default function ForgotPassword() {
                   boxShadow="dark-lg"
                   colorScheme="blue"
                   type="submit"
-                  onClick={handleSubmit}
+                  onClick={event => handleSubmit(event)}
                 >
-                  Send
+                  Confirm
                 </Button>
               </Link>
             </Stack>

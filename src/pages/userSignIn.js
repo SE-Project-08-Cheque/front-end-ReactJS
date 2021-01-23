@@ -1,13 +1,15 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
 import SignIn from '../components/signin';
-
+import WelcomeCard from '../components/WelcomeCard';
+import WelcomeFooter from '../components/WelcomeFooter';
+import WelcomeNavbar from '../components/WelcomeNavbar';
 
 function userSignIn() {
   return (
     <>
-      <Navbar />
-      <SignIn/>
+      <WelcomeNavbar heading="Online Cheque" />
+      <SignIn />
+      <WelcomeFooter />
     </>
   );
 }

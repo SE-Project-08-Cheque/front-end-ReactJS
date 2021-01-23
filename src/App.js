@@ -26,48 +26,75 @@ import AllChequeView from './pages/GetChequeRequests';
 
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Dashboard from './pages/Dashboard';
 import ChangePassword from './pages/ChangePassword';
 import ChangeDetails from './pages/ChangeDetails';
 
-import userSignIn from './pages/userSignIn';
-import userSignUp from './pages/userSignUp';
-import forgotPass from './pages/ForgotPass';
+import Welcome from './pages/Welcome'; 
+import userSignIn from './pages/userSignIn'; 
+import userSignUp from './pages/userSignUp'; 
+import forgotPass from './pages/ForgotPass'; 
+import EnterPin from './pages/EnterPin';
+import EnterNewPassword from './pages/EnterNewPassword';
 
-import Welcome from './pages/Welcome';
 
 
 
 function App() {
+
+
+  const DefaultPageRoute = ({ component: Component, ...rest }) => {
+    return (
+      <Route {...rest} component={(props) => (
+        <div>
+        <Navbar heading='onlineCheque'/>
+          <Component {...props} />
+          <Footer />
+        </div>
+      )}
+      />
+    );
+  }
+
+  const LandingPageRoute = ({ component: Component, ...rest }) => {
+    return (
+      <Route
+        {...rest}
+        component={(props) => (<Component {...props} />)}
+      />
+    );
+  }
+
+  const NavigationPageRoute = ({ component: Component, ...rest }) => {
+    return (
+      <Route {...rest} component={(props) => (
+        <div>
+        <Navbar heading='onlineCheque'/>
+          <Component {...props} />
+        </div>
+      )}
+      />
+    );
+  }
+
+
+
   return (
     <Router>
       <ChakraProvider>
-        
+
         <Switch>
-
-          
-          <Route path="/StaffDashboard"  component={StaffDashboard} />
-          <Route path="/CustomerDetails"  component={CustomerList} />
-          <Route path="/StaffchangeDetails" component={StaffChangeDetails}/>
-          <Route path="/StaffChangePassword" component={StaffPassChange}/>
-          <Route path="/pinRequests"        component={PinChangeRequests}/>
-          <Route path="/NewRegisterRequests"   component={NewRegisterRequests}/>
-          <Route path="/cheques" component={AllChequeView}/>
-
-
-
-          <Route path="/welcome" exact component={Welcome} />
-          <Route path="/home" exact component={Home} />
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/changePassword" component={ChangePassword} />
-          <Route path="/changeDetails" component={ChangeDetails} />
-
-          <Route path="/userSignUp" component={userSignUp} />
-          <Route path="/userSignIn" component={userSignIn} />
-          <Route path="/forgotPass" component={forgotPass} />
-
-          <Route path="/*" exact component={Welcome} />
-
+          <DefaultPageRoute path="/customerHome" exact component={Home} />
+          <NavigationPageRoute path="/custdashboard" component={Dashboard} />
+          <NavigationPageRoute path="/custchangePassword" component={ChangePassword} />
+          <DefaultPageRoute path="/custchangeDetails" component={ChangeDetails} />
+          <DefaultPageRoute path="/usersignin" component={userSignIn} />
+          <DefaultPageRoute path="/usersignup" component={userSignUp} />
+          <LandingPageRoute path="/" exact component={Welcome} />
+          <LandingPageRoute path="/forgotPassword" component={forgotPass} />
+          <LandingPageRoute path="/enterpin" component={EnterPin} />
+          <LandingPageRoute path="/newpass" component={EnterNewPassword} />
 
         </Switch>
       </ChakraProvider>

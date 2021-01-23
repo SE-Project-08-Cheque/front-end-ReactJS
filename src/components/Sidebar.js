@@ -55,7 +55,9 @@ function Sidebar(props) {
           borderWidth="0px"
         >
           <Center mb="5px" mt="10px">
-            <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
+            <Avatar bg="blue.500">
+              <AvatarBadge boxSize="1.25em" bg="green.500" />
+            </Avatar>
           </Center>
 
           <Box h="50px" mb="70px">
@@ -68,9 +70,9 @@ function Sidebar(props) {
               </Badge>
             </Center>
             <Progress
-              ml="50px"
-              mr="50px"
-              colorScheme="green"
+              ml="100px"
+              mr="100px"
+              colorScheme="red"
               size="xs"
               isIndeterminate
             />
@@ -82,7 +84,7 @@ function Sidebar(props) {
               spacing={5}
               align="stretch"
             >
-              <Link as={ReactRouterLink} to="/changeDetails">
+              <Link as={ReactRouterLink} to="/customerHome">
                 <Button
                   h="50px"
                   w="100%"
@@ -95,11 +97,11 @@ function Sidebar(props) {
                   boxShadow="dark-lg"
                   colorScheme="gray.600"
                 >
-                  <Center>Change Details</Center>
+                  <Center>Notification Bar</Center>
                 </Button>
               </Link>
 
-              <Link as={ReactRouterLink} to="/changePassword">
+              <Link as={ReactRouterLink} to="/custchangePassword">
                 <Button
                   h="50px"
                   w="100%"
@@ -115,6 +117,20 @@ function Sidebar(props) {
                   Change Password
                 </Button>
               </Link>
+              <Button
+                h="50px"
+                w="100%"
+                _hover={{
+                  background: 'gray.800',
+                  color: 'white',
+                  transitionDuration: '0.6s',
+                }}
+                rounded="box"
+                boxShadow="dark-lg"
+                colorScheme="gray.600"
+              >
+                Forgot PIN
+              </Button>
 
               <Divider orientation="horizontal" />
             </VStack>
