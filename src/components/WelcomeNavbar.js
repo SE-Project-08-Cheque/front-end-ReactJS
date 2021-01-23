@@ -12,7 +12,7 @@ import {
 import { HamburgerIcon, MoonIcon, SettingsIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 
-function Navbar(props) {
+function WelcomeNavbar(props) {
   const MenuItems = ({ children }) => (
     <Button
       mt={{ base: 4, md: 0 }}
@@ -46,7 +46,7 @@ function Navbar(props) {
       zIndex="10000"
     >
       <Flex align="center" mr={5}>
-        <Link as={ReactRouterLink} to="/CustomerHome">
+        <Link as={ReactRouterLink}>
           <Heading as="h1" size="lg" letterSpacing={'-.1rem'}>
             {props.heading}
             <i class="fab fa-typo3" />
@@ -65,17 +65,7 @@ function Navbar(props) {
         flexGrow={1}
         pl="20px"
       >
-        <MenuItems>
-          <Link as={ReactRouterLink} to="/customerHome">
-            Home
-          </Link>
-        </MenuItems>
-        <MenuItems>
-          <Link as={ReactRouterLink} to="/custDashboard">
-            Dashboard
-          </Link>
-        </MenuItems>
-        <MenuItems>Help me</MenuItems>
+        
       </Box>
 
       <Box
@@ -90,13 +80,9 @@ function Navbar(props) {
           variant="outline"
           onClick={toggleColorMode}
         />
-
-        <Button bg="transparent" border="1px">
-          Log out
-        </Button>
       </Box>
     </Flex>
   );
 }
 
-export default Navbar;
+export default WelcomeNavbar;

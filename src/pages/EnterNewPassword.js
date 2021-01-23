@@ -1,17 +1,17 @@
 import React from 'react';
-import ForgotPassword from '../components/ForgotPassword';
 import WelcomeNavbar from '../components/WelcomeNavbar';
 import WelcomeFooter from '../components/WelcomeFooter';
+import NewPass from '../components/NewPass';
 
 
-function forgotPass() {
+function EnterNewPassword() {
   return (
     <>
     <WelcomeNavbar heading="Online Cheque" />
-      <ForgotPassword/>
+      <NewPass/>
       <WelcomeFooter />
     </>
   );
 }
 
-export default forgotPass;
+export default EnterNewPassword;
