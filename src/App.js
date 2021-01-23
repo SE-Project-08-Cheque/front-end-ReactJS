@@ -2,15 +2,15 @@ import React, {Component} from 'react';
 import './App.css';
 import ChequeBuilder from './containers/ChequeBuilder/ChequeBuilder';
 import ListBuilder from './containers/ChequeList/Chequelist';
-import { ChakraProvider } from "@chakra-ui/react"
+import { ChakraProvider,IconButton } from "@chakra-ui/react"
 
 class App extends Component{
   render(){
     return(
       <ChakraProvider>
         <div>
-          <ChequeBuilder/>
-          {/* <ListBuilder/> */}
+          {/* <ChequeBuilder/> */}
+          <ListBuilder/>
       </div>
       </ChakraProvider>
       

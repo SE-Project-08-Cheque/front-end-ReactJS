@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Listtable} from '../../components/Chequelist/Listtable';
+import {Tabs,TabList,Tab,TabPanels,TabPanel} from "@chakra-ui/react"
 
 class ListBuilder extends Component{
 
@@ -21,8 +22,27 @@ class ListBuilder extends Component{
       }
 
     render(){
-        return(
+        return (
           <Listtable modal={this.state.modal} change={this.Changemodal} open={this.state.modalopen} close={this.closemodal}/>
+          // <Tabs size="md" variant="enclosed" width="75%" margin="auto">
+          //   <TabList>
+          //     <Tab>One</Tab>
+          //     <Tab>Two</Tab>
+          //   </TabList>
+          //   <TabPanels>
+          //     <TabPanel>
+          //       <Listtable
+          //         modal={this.state.modal}
+          //         change={this.Changemodal}
+          //         open={this.state.modalopen}
+          //         close={this.closemodal}
+          //       />
+          //     </TabPanel>
+          //     <TabPanel>
+          //       <p>two!</p>
+          //     </TabPanel>
+          //   </TabPanels>
+          // </Tabs>
         );
     }
 }

@@ -4,10 +4,14 @@ import MOCK_DATA from './MOCK_DATA.json'
 import {format} from 'date-fns';
 // import {COLUMNS} from './columns'
 // import { MdBuild , MdCall } from "react-icons/md"
+import { ArrowRightIcon, ArrowLeftIcon, AddIcon} from '@chakra-ui/icons'
 import './table.css'
 import { GlobalFilter } from '../Cheq/GlobalFilter'
 import {
+  Icon,
     Text,
+    Box,
+    MdBuild,
     Button,
     Modal,
     PhoneIcon,
@@ -79,6 +83,8 @@ export const Listtable = (props)=>{
     //   const {pageIndex} = state
 
       return (
+        
+        
           <>
           {/* <IconButton aria-label="Search database" icon={<SearchIcon />} /> */}
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
@@ -116,7 +122,7 @@ export const Listtable = (props)=>{
                   {/* {console.log(row.original.name)} */}
                   <td>
                       
-      <Button onClick={(event)=>{props.change(event,row.original)}}>{}</Button>
+      <Button onClick={(event)=>{props.change(event,row.original)}}>View<Icon as={AddIcon} w={4} h={4} m={2} color="#4CAF50" /></Button>
       {/* <Button onClick={onOpen}>{}</Button> */}
       <Modal blockScrollOnMount={false} isOpen={props.open} onClose={props.close}>
         <ModalContent>
@@ -142,13 +148,21 @@ export const Listtable = (props)=>{
             })}
             </tbody>
         </table>
-        <div style={{margin:"auto", textAlign:"center"}}>
+        <div w={[300, 400, 560]} style={{margin:"auto", textAlign:"right"}}>
+        <Box bg="#ffffff"  w={[300, 400, 200]} p={2} color="black" border="1px" borderColor="gray.200" borderRadius="10px">
             <select value={pageSize} onChange={e=>setPageSize(Number(e.target.value))}>{[10,20,30].map(pageSize=>(
                 <option key={pageSize} value={pageSize}>Show {pageSize}</option>
             ))}</select>
             <span>Page{' '}<strong>{pageIndex+1} of {pageOptions.length}</strong>{' '}</span>
-            <button onClick={()=>previousPage()} disabled={!canPreviousPage}>&lt;&lt;Previous</button>
-            <button icon={<PhoneIcon />} onClick={()=>nextPage()} disabled={!canNextPage}>Next&gt;&gt;</button>
+            </Box>
+            </div>
+            
+            <div style={{margin:"auto", textAlign:"center"}}>
+            <Box bg="#ffffff" mx="auto" w={[250, 400, 300]} p={2} color="black" border="1px" borderColor="gray.200" borderRadius="10px" centerContent>
+              
+            <button onClick={()=>previousPage()} disabled={!canPreviousPage}>Prev<Icon as={ArrowLeftIcon} w={8} h={8} m={4} color="#4CAF50" /></button>
+            <button onClick={()=>nextPage()} disabled={!canNextPage}><Icon as={ArrowRightIcon} w={8} h={8} m={4} color="#4CAF50" />Next</button>
+            </Box>
         </div>
         </>
     )
